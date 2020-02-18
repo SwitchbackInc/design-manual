@@ -3,7 +3,7 @@ title: Switchback, Inc. Design Manual
 email: adam@switchback.com
 description: >- # this means to ignore newlines until "baseurl:"
   Switchback, Inc. Design Manual
-baseurl: "" # change to GitHub project repo name i.e. mindreeper2420/rhddx for GitHub pages w/no custom domain
+baseurl: design-manual # change to GitHub project repo name i.e. mindreeper2420/rhddx for GitHub pages w/no custom domain
 url: "https://switchbackinc.github.io/design-manual/"
 version: 1.0.0
 NODE_VERSION: 10.16.0

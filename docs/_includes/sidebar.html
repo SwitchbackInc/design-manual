@@ -1,0 +1,46 @@
+{% comment %}
+    Create an empty array to store secondary nav sections
+{% endcomment %}
+{% assign secondary_sections = '' | split: ',' %}
+
+{% for p in site.pages %}
+    {% if p.section == page.section and p.secondary_section %}
+        {% unless secondary_sections contains p.secondary_section %}
+            {% assign secondary_sections = secondary_sections | push: p.secondary_section %}
+        {% endunless %}
+    {% endif %}
+{% endfor %}
+
+{% comment %}
+    Alphabetize the sections
+{% endcomment %}
+{% assign secondary_sections = secondary_sections | sort %}
+
+{% if secondary_sections %}
+<ul class="m-list m-list__unstyled">
+    {% for secondary_section in secondary_sections | sort %}
+    <li class="m-list_item u-mb15">
+        <span class="h5">{{ secondary_section }}</span>
+        <ul class="m-list m-list__links">
+            {% for p in site.pages %}
+                {% if p.section == page.section and p.secondary_section == secondary_section %}
+                <li class="m-list_item">
+                    <a class="m-list_link" href="{{ site.baseurl }}/{{ p.section }}/{{ p.title | slugify }}">{{ p.title }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<ul class="m-list m-list__links">
+    {% for p in site.pages %}
+        {% if p.section == page.section %}
+        <li class="m-list_item">
+            <a class="m-list_link" href="{{ site.baseurl }}/{{ p.section }}/{{ p.title | slugify }}">{{ p.title }}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}

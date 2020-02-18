@@ -1,70 +1,89 @@
-# Switchback, Inc. Design Manual
-The Design Manual is to be used as the primary place to understand the story, messaging, and branding of Switchback, Inc. and it's products and services.
+# CFPB Design System [![Travis](https://img.shields.io/travis/cfpb/design-system.svg?style=flat-square)](https://travis-ci.org/cfpb/design-system) [![npm](https://img.shields.io/npm/v/@cfpb/design-system.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/design-system)
 
-## Getting started
+The Consumer Financial Protection Bureau's user interface framework and documentation.
 
-All processes are controlled through Node/Gulp. Additionally, Jekyll requires that Ruby be installed. If you do not have these installed, you will need to do so before developing for this project. For Ruby, it is recommended to use [RVM](https://rvm.io/).
+| atomic-component | buttons | core | expandables | forms | grid
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| [![npm](https://img.shields.io/npm/v/@cfpb/atomic-component.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/atomic-component) | [![npm](https://img.shields.io/npm/v/@cfpb/buttons.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/buttons)  | [![npm](https://img.shields.io/npm/v/@cfpb/core.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/core)  | [![npm](https://img.shields.io/npm/v/@cfpb/expandables.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/expandables)  | [![npm](https://img.shields.io/npm/v/@cfpb/forms.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/forms)  | [![npm](https://img.shields.io/npm/v/@cfpb/grid.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/grid)  |
 
-Requirements:
- - [Node (10+)](https://nodejs.org/en/)
-    - _[NVM](https://nodejs.org/en/download/package-manager/#nvm) is recommended_
- - NPM (6+)
- - [Gulp](https://gulpjs.com/)
-   - CLI: 2.2.0
-   - Local: 4.0.2
- - Ruby (2.6+ - for Jekyll)
+| icons | layout | notifications | pagination | tables | typography |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| [![npm](https://img.shields.io/npm/v/@cfpb/icons.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/icons)  | [![npm](https://img.shields.io/npm/v/@cfpb/layout.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/layout)  | [![npm](https://img.shields.io/npm/v/@cfpb/notifications.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/notifications)  | [![npm](https://img.shields.io/npm/v/@cfpb/pagination.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/pagination)  | [![npm](https://img.shields.io/npm/v/@cfpb/tables.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/tables)  | [![npm](https://img.shields.io/npm/v/@cfpb/typography.svg?style=flat-square)](https://www.npmjs.com/package/@cfpb/typography)  |
 
-### Fork and Clone the Repository
-```bash
-git clone git@github.com:YOUR_USER_NAME/rhddx.git
-cd rhddx
-git remote add -f upstream git@github.com:switchbackinc/design-manual.git
+
+## Installation
+
+Install components using yarn or npm:
+
+```sh
+yarn add @cfpb/cfpb-buttons
+# or
+npm install @cfpb/cfpb-buttons
 ```
 
-## Building the Project
+Or you can install all components at once:
 
-Run the following commands:
-```bash
-# Install devDependencies
-$ npm install
-
-# Run Gulp Build
-$ gulp build
+```sh
+yarn add @cfpb/cfpb-design-system
+# or
+npm install @cfpb/cfpb-design-system
 ```
 
-After the initial build, you can then run the local development environment by running either `gulp development`.
 
-  - When in development mode, Gulp will watch the project folders for changes. Changes to `.scss` files will rebuild the styles and update the `main.css` file under `_site/assets/`. Changes to any `.html` files will kick of the Jekyll Build process, updating the HTML files under `_site/`
+## Usage
 
-  - To view the site locally, navigate to [localhost:4000](http://localhost:4000/).
+Import individual Less stylesheets or the entire design system into your project:
 
-### **All Available Scripts**
+```less
+@import '@cfpb/cfpb-buttons/src/cfpb-buttons.less';
+@import '@cfpb/cfpb-typography/src/cfpb-typography.less';
+// or
+@import '@cfpb/cfpb-design-system/src/cfpb-design-system.less';
 
-```bash
-  # Runs the development processes
-  scripts/./development.sh
-
-  # Run Release processes, update Changelog & push to Master
-  # replace {{version}} with either major, minor, patch or prerelease
-  scripts/./release.sh {{version}}
+// the rest of your stylesheet...
 ```
 
-## Page construction
+Components with JavaScript can also be imported:
 
-Each page under is built using Jekyll Frontmatter. Due to the size and complexity of this site, we use multiple variations of the Frontmatter in order to properly sort and render the various examples and documentation. To view how to build a page, check out the [page construction](help/page-construction) file.
+```js
+import Expandable from '@cfpb/cfpb-expandables/src/Expandable'';
 
-## Browser support
+Expandable.init( document.querySelector( '#container' ) );
+```
 
-The Switchback, Inc. Design Manual is supported on the latest version of the following browsers:
+> NOTE: Be sure to run the Less files through
+  [Autoprefixer](https://github.com/postcss/autoprefixer),
+  or your compiled CSS might not work perfectly in older browsers.
 
- - Chrome
- - Firefox
- - Safari
- - Edge (Chromium)
 
-----
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/mindreeper2420/)
+## Documentation
 
-[![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://github.com/topics/git)
-[![ForTheBadge uses-html](http://ForTheBadge.com/images/badges/uses-html.svg)](https://github.com/topics/html)
-[![ForTheBadge uses-css](http://ForTheBadge.com/images/badges/uses-css.svg)](https://github.com/topics/css)
+The Design System's website is available at https://cfpb.github.io/design-system/.
+It lives in this repository's `docs/` directory and is powered by [Netlify CMS](https://www.netlifycms.org/) and [Jekyll](https://jekyllrb.com/).
+To edit any page of the website, click the edit button at the bottom right of
+the page.
+You'll need to be added as a contributor to this repository in order to
+authenticate with Netlify CMS.
+
+To run the documentation website locally:
+
+```shell
+git clone https://github.com/cfpb/design-system.git
+cd design-system/docs
+yarn
+yarn start
+```
+
+Visit http://localhost:4000/design-system/ to view the site.
+Editing a page locally will open a real PR against this GitHub repository.
+
+
+## Contributing
+
+Please view our [contribution guidelines.](CONTRIBUTING.md)
+
+
+## Open source licensing info
+1. [TERMS](TERMS.md)
+2. [LICENSE](LICENSE)
+3. [CFPB Source Code Policy](https://github.com/cfpb/source-code-policy/)

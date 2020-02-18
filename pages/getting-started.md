@@ -1,7 +1,7 @@
 ---
 layout: getting-started
 title: Getting Started Overview
-permalink: /getting-started
+permalink: getting-started
 section: overview
 intro_paragraph: >
 

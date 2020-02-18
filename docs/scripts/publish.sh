@@ -10,5 +10,8 @@ cd docs/
 echo "Build site"
 gulp build
 
+echo "Move back up"
+cd ..
+
 echo "Update subtee and push to gh-pages"
-git subtree push --prefix _site origin gh-pages
+git subtree push --prefix docs/_site origin gh-pages

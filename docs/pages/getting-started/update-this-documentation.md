@@ -7,25 +7,6 @@ intro_paragraph: >
   Updating this documentation can be done using our Admin UI or GitHub
 ---
 
-IDENTIFIERS:
-<ul class="fa-ul">
-  <li>
-    <span class="fa-li">
-      <span class="badge badge-dark"><i class="fas fa-user-lock"></i></span>
-    </span> Requires Administrative Access
-  </li>
-  <li>
-    <span class="fa-li">
-      <span class="badge badge-dark"><i class="fab fa-github"></i></span>
-    </span> Requires GitHub Access
-  </li>
-  <li>
-    <span class="fa-li">
-      <span class="badge badge-success"><i class="fab fa-sketch"></i></span>
-    </span> Requires Sketch Access
-  </li>
-</ul>
-
 ## Access
 If you would like to use our built-in administration environment, you will need to <a href="mailto:mindreeper2420@gmail.com">request an account</a>. Otherwise, all contributions can be done through GitHub.
 
